@@ -6,11 +6,13 @@ let todos: Todo[];
 
 const todosFilePath = 'server/data/todos.json'
 
-try {
-  const data = fs.readFileSync(todosFilePath);
-  todos = JSON.parse(data.toString());
-} catch (err) {
-  todos = [];
+const getTodosFromStorage = () => {
+  try {
+    const data = fs.readFileSync(todosFilePath);
+    todos = JSON.parse(data.toString());
+  } catch (err) {
+    todos = [];
+  }
 }
 
 const router: Router = express.Router();
@@ -18,6 +20,7 @@ const router: Router = express.Router();
 // Get all todos
 router.get('/', (req: Request, res: Response) => {
   try {
+    getTodosFromStorage()
     res.json(todos);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
@@ -26,6 +29,7 @@ router.get('/', (req: Request, res: Response) => {
 
 // Create a new todo
 router.post('/', (req: Request, res: Response) => {
+  getTodosFromStorage()
   const todo: Todo = {
     id: todos.length + 1,
     title: req.body.title,
@@ -43,6 +47,7 @@ router.post('/', (req: Request, res: Response) => {
 
 // Update a todo
 router.patch('/:id', (req: Request, res: Response) => {
+  getTodosFromStorage()
   const todo = todos.find(t => t.id === parseInt(req.params.id));
   if (!todo) {
     return res.status(404).json({ message: 'Cannot find todo' });
@@ -69,6 +74,7 @@ router.patch('/:id', (req: Request, res: Response) => {
 
 // Delete a todo
 router.delete('/:id', (req: Request, res: Response) => {
+  getTodosFromStorage()
   const todo = todos.find(t => t.id === parseInt(req.params.id));
   if (!todo) {
     return res.status(404).json({ message: 'Cannot find todo' });
