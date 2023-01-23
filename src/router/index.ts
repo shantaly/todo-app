@@ -7,9 +7,14 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
-    }
-  ]
+      component: HomeView,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: '404',
+      redirect: '/',
+    },
+  ],
 })
 
 export default router

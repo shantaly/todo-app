@@ -1,0 +1,37 @@
+@import './variables';
+
+@mixin breakpoint($point) {
+    @if $point==x-small {
+        @media (min-width: $bp-x-small) {
+            @content ;
+        }
+    }
+
+    @else if $point==small {
+        @media (min-width: $bp-small) {
+            @content ;
+        }
+    }
+
+    @else if $point==medium {
+        @media (min-width: $bp-med) {
+            @content ;
+        }
+    }
+
+    @else if $point==large {
+        @media (min-width: $bp-large) {
+            @content ;
+        }
+    }
+
+    @else if $point==x-large {
+        @media (min-width: $bp-x-large) {
+            @content ;
+        }
+    }
+
+    @media (min-width: $point) {
+        @content ;
+    }
+}

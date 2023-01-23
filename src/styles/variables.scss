@@ -1,0 +1,32 @@
+//-------------------------------------------------------------------
+// Dimensions
+//-------------------------------------------------------------------
+$d-base: 8px;
+
+$d-tiny: $d-base;
+$d-xx-small: $d-base * 1.5;
+$d-x-small: $d-base * 2;
+$d-small: $d-base * 3;
+$d-medium-small: $d-base * 4;
+$d-medium: $d-base * 5;
+$d-medium-large: $d-base * 6;
+$d-large: $d-base * 7;
+$d-x-large: $d-base * 8;
+$d-xx-large: $d-base * 9;
+$d-xxx-large: $d-base * 10;
+$d-huge: $d-base * 11;
+$d-x-huge: $d-base * 15;
+$d-xx-huge: $d-base * 20;
+$d-xxx-huge: $d-base * 24;
+
+//-------------------------------------------------------------------
+// Breakpoints
+//-------------------------------------------------------------------
+$bp-x-large: 1440px;
+$bp-large: 1280px;
+$bp-med: 976px;
+$bp-small: 768px;
+$bp-x-small: 480px;
+
+
+$content-width: 1440px;

@@ -1,0 +1,59 @@
+@import './typography';
+@import './mixins.scss';
+
+.main-page-wrapper {
+    max-width: $content-width;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+}
+
+
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+}
+
+body {
+    background-color: #c8cad2;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin: 0 auto;
+}
+
+button {
+    cursor: pointer;
+
+    &:disabled {
+        cursor: not-allowed;
+        pointer-events: all !important;
+    }
+}
+
+input {
+    border: #073382 solid 1px;
+    border-radius: 4px;
+    padding: $d-tiny;
+}
+
+i {
+    display: flex;
+    place-items: center;
+    place-content: center;
+    width: 24px;
+    height: 24px;
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
+}
