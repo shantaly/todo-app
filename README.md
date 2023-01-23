@@ -1,6 +1,6 @@
 # Plooto Todo
 
-Using Vue 3 in Vite.
+Using Vue 3 in Vite & Node.js with Typescript end-to-end.
 
 ## Project Setup
 
