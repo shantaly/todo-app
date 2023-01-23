@@ -64,14 +64,18 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const { updateTodo, deleteTodo } = useTodoStore()
+    const { state, updateTodo, deleteTodo } = useTodoStore()
     const todo = ref({ ...props.todoItem });
     const editedTodo = ref({ ...props.todoItem });
     const editing = ref(false);
 
-    const updateTodoItem = () => {
-      updateTodo(editedTodo.value);
-      todo.value = { ...editedTodo.value };
+    const updateTodoItem = async () => {
+      await updateTodo(editedTodo.value);
+      const newTodo = state.todos.find((t: Todo) => t.id === editedTodo.value.id)
+      if (newTodo) {
+        todo.value = { ...newTodo };
+        editedTodo.value = { ...newTodo };
+      }
       editing.value = false
     };
 

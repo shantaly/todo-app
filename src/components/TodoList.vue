@@ -18,7 +18,7 @@
           <div v-if="index != todos.length - 1" class="divider" />
         </div>
       </div>
-      <p v-else class="todos-list-container__content__empty">
+      <p v-else-if="!isLoading" class="todos-list-container__content__empty">
         You have nothing to do :(
       </p>
     </div>
