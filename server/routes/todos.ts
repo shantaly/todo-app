@@ -48,6 +48,9 @@ router.patch('/:id', (req: Request, res: Response) => {
     return res.status(404).json({ message: 'Cannot find todo' });
   }
   if (req.body.title != null) {
+    if (req.body.title.length == 0) {
+      return res.status(400).json({ message: 'Title cannot be empty' });
+    }
     todo.title = req.body.title;
   }
   if (req.body.description != null) {
