@@ -1,4 +1,4 @@
-# Plooto Todo
+# Todo App
 
 Using Vue 3 in Vite & Node.js with Typescript end-to-end.
 
